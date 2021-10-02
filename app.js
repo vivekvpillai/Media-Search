@@ -21,12 +21,16 @@ $(()=>{
 
 
   $.ajax({
-  url: `https://www.googleapis.com/books/v1/volumes?q=fantasy`
+  url: `https://www.googleapis.com/books/v1/volumes?q=${userInput}&maxResults=40`
   // type: "GET"
   }).then(
   (data) => {
-    alert("Retrieved the book " + data.length + " records from the dataset!");
-    console.log(data.items[1].volumeInfo.title)
+    alert("Retrieved the book " + data.items.length + " records from the dataset!");
+    for (let i=0; i<data.items.length-1; i++){
+    console.log(data.items[i].volumeInfo.title)
+    const
+    }
+
     // $('#title').html(data.Title)
     // $('#year').html(data.Year)
     // $('#rated').html(data.Rated)
