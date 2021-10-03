@@ -44,25 +44,54 @@ $(()=>{
     }
 
     const $modalbutton = $('<button>').text('Info')
+    $modalbutton.addClass('openModal')
     $modalbutton.appendTo($containereach) //creating modal button
-    const $modal = $('<div>').addClass('modal')
-    $modal.appendTo($containereach)
-    const $modaltextbox = $('<div>').addClass('modal-textbox')
-    $modaltextbox.appendTo($containereach)
-    const $closetag = $('<div>').attr('id', 'close').text('Close').appendTo($modaltextbox)
+
+    // const openModal = () => {
+      const $modal = $('<div>').attr('id', `modal${i}`)
+      $modal.appendTo($containereach)
+      const $modaltextbox = $('<div>').addClass('modal-textbox')
+      $modaltextbox.appendTo($modal)
+      const $closetag = $('<div>').addClass('close').text('Close').appendTo($modaltextbox)
 
 
-    //Adding the book info below
-    const $books =$('<div>').text(data.items[i].volumeInfo.title).addClass('title');
-    $books.appendTo($modaltextbox);
-    $books.css({'margin-bottom':'15px'})
-    const $author = $('<a>').text(data.items[i].volumeInfo.authors)
-    $author.appendTo($books)
-    const $date = $('<a>').text(data.items[i].volumeInfo.publishedDate)
-    $date.appendTo($books);
-    const $description = $('<a>').text(data.items[i].volumeInfo.description)
-    $description.appendTo($books);
-    // const $break = $('<br>').appendTo($books)
+      //Adding the book info below
+      const $books =$('<div>').text(data.items[i].volumeInfo.title).addClass('title');
+      $books.appendTo($modaltextbox);
+      $books.css({'margin-bottom':'15px'})
+        const $author = $('<a>').text(data.items[i].volumeInfo.authors)
+        $author.appendTo($books)
+        const $date = $('<a>').text(data.items[i].volumeInfo.publishedDate)
+        $date.appendTo($books);
+        const $description = $('<a>').text(data.items[i].volumeInfo.description)
+        $description.appendTo($books);
+        // const $break = $('<br>').appendTo($books)
+      // }
+
+      //Grabbing Elements
+      const $openBtn = $('.openModal');
+      // const $modal = $('#modal');
+      const $closeBtn = $('.close');
+
+      //Event Handlers
+      const openModal = () => {
+        $modal.css('display', 'block');
+      }
+
+      const closeModal = () => {
+        $modal.css('display', 'none');
+      }
+
+      //Event Listeners
+      $openBtn.on('click', openModal);
+
+      $closeBtn.on('click', closeModal);
+
+
+    // $closetag.on('click', openModal => {
+    //   $modal.css('display', 'none');
+    // })
+
     }
 
   // const $globooks = $('.title')
@@ -73,9 +102,6 @@ $(()=>{
     // $('#title').html(data.Title)
     // $('#year').html(data.Year)
     // $('#rated').html(data.Rated)
-  },
-  ()=> {
-    console.log('bad request')
   }
 
     );
