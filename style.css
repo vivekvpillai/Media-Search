@@ -1,6 +1,23 @@
+body{
+  background-color: #FAF0E6
+}
+
+#pagetitle{
+  text-align: center;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 350%;
+  margin-top: 25px
+}
+
+
 $books {
   margin-bottom: 10px;
 
+}
+
+.display{
+  display: flex;
+  flex-direction: row
 }
 
 .modal {
@@ -21,4 +38,17 @@ $books {
 	background-color: white;
 	border-radius: 2px;
 	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+.card-button {
+	align-self: center;
+	background: #f2cd99;
+	color: #888;
+	padding: 10px;
+	border-radius: 50%;
+	text-align: center;
+	box-shadow: 1px 1px #fa8d8e;
 }

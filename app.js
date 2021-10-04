@@ -1,9 +1,13 @@
 
-//API Key: AIzaSyC3OdAsJNJMjiPI8wnnt4zycydn4bTMCSY
+//API Key for books: AIzaSyC3OdAsJNJMjiPI8wnnt4zycydn4bTMCSY
 
 //Standard format: https://www.googleapis.com/books/v1/volumes?q=flowers+inauthor:keyes&key=yourAPIKey
 
 //max results: https://www.googleapis.com/books/v1/volumes?q=fantasy&maxResults=40
+
+// API key for omdb: 36c4fe16
+
+// OMDB API Site with API key already: `https://www.omdbapi.com/?apikey=36c4fe16&t=${userInput}`
 
 
 
@@ -27,11 +31,14 @@ $(()=>{
   }).then(
   (data) => {
     alert("Retrieved the book " + data.items.length + " records from the dataset!");
+
+//////////////////for loop
     for (let i=0; i<data.items.length-1; i++){
       console.log(data.items[i].volumeInfo.title)
 
       const $containereach = $('<div>').addClass('Cards')
       $containereach.appendTo($('.display')) //each card container for the Books
+////////////////////Covers
       //below is the code for the book covers adding to the card containers
       if (data.items[i].volumeInfo.imageLinks!=undefined){
         const $cover = $('<img>').attr('src',data.items[i].volumeInfo.imageLinks.thumbnail)
@@ -48,7 +55,7 @@ $(()=>{
       // const $modalbutton = $('<button>').text('Info')
       // $modalbutton.addClass(`openModal${i}`)
       // $modalbutton.appendTo($containereach) //creating modal button
-
+///////////////////////modal
       // const openModal = () => {
         const $modal = $('<div>').attr('id', `modal${i}`)
         $modal.appendTo($containereach)
@@ -57,8 +64,8 @@ $(()=>{
         const $closetag = $('<div>').addClass(`close${i}`).text('Close').appendTo($modaltextbox)
 
 
-        //Adding the book info below
-        const $books =$('<div>').text(data.items[i].volumeInfo.title).addClass('title');
+///////////////Adding the book info below
+        const $books =$('<div>').text(data.items[i].volumeInfo.title).addClass(`title value${i}`);
         $books.appendTo($modaltextbox);
         $books.css({'margin-bottom':'15px'})
           const $author = $('<a>').text(data.items[i].volumeInfo.authors)
@@ -67,14 +74,18 @@ $(()=>{
           $date.appendTo($books);
           const $description = $('<a>').text(data.items[i].volumeInfo.description)
           $description.appendTo($books);
+          const $movietag = $('<div>').addClass(`movie${i}`).text('Films/Movies').appendTo($modaltextbox)
           // const $break = $('<br>').appendTo($books)
         // }
 
+///////////////Grabbing Elements for Buttons
         $(`#modal${i}`).css('display', 'none')
-        //Grabbing Elements
+        //setting the modal to not display until clicked
         const $openBtn = $(`.openModal${i}`);
         // const $modal = $('#modal'); grabbed earlier
         const $closeBtn = $(`.close${i}`);
+        // grab the movie nextbutton
+        const $movieBtn = $(`.movie${i}`);
 
         //Event Handlers
         const openModal = () => {
@@ -87,17 +98,92 @@ $(()=>{
           // console.log(`#modal${i}`)
         }
 
+        const openMovie = (event) => {
+          event.preventDefault()
+          const $ect = $(event.currentTarget)
+          $.ajax({
+            url: `https://www.omdbapi.com/?apikey=36c4fe16&t=${$(`.value${i}`)}`
+          }).then(
+            (data) => {
+              console.log(data.Title)
+              console.log(data.Year)
+              console.log(data.Rated)
+              console.log(data.Poster)
+              const $movtitle = $('<a>').text(data.Title)
+              $movtitle.appendTo($books)
+              const $movdate = $('<a>').text(data.Year)
+              $movdate.appendTo($books);
+              const $Poster = $('<img>').attr('src',data.Poster)
+              $Poster.appendTo($books);
+            },
+            ()=> {
+              console.log('No film title exists')
+            }
+          );
+
+        }
+
         //Event Listeners
         $openBtn.on('click', openModal);
 
         $closeBtn.on('click', closeModal);
 
+        $movieBtn.on('click', openMovie);
 
+
+////////////////////CAROUSEL
       // $closetag.on('click', openModal => {
       //   $modal.css('display', 'none');
       // })
+      $('.Cards').css('display', 'none')
+      $('.Cards:nth-child(-n+5)').css({'display':'flex'})
+            let nextrange1 = 1
+            let nextrange2 = 6
+            let prevrange1 = 45
+            let prevrange2 = 40
+            let currentImgIndex = 0
+            let numOfImages = $('.Cards')
 
+            if (nextrange2<41 && nextrange1<36){
+            $('.next').on('click', () => {
+              $('.Cards').css('display', 'none')
+                  if(currentImgIndex < numOfImages) {
+                currentImgIndex ++
+               } else {
+                currentImgIndex = 0
+               }
+               nextrange1+=5
+               nextrange2+=5
+               $(`.Cards:nth-child(n+${nextrange1}):nth-child(-n+${nextrange2})`).css('display', 'flex')
+               console.log(nextrange1)
+               console.log(nextrange2)
+            })
+          }
+
+          if (nextrange2<6 && nextrange1<1){
+            $('.previous').on('click', () => {
+              $('.Cards').css('display', 'none')
+              if(currentImgIndex > 0) {
+             currentImgIndex --
+           } else {
+             currentImgIndex = numOfImages
+           }
+           nextrange1-=5
+           nextrange2-=5
+           $(`.Cards:nth-child(n+${nextrange1}):nth-child(-n+${nextrange2})`).css('display', 'flex')
+           console.log(nextrange1)
+           console.log(nextrange2)
+          })
+        }
+
+// console.log(`.value${i}`)
+  ///end of for loop
     }
+  //end of for loop
+
+
+
+
 
   // const $globooks = $('.title')
   // $globooks.css('display', 'none')
