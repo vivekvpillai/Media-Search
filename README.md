@@ -1,1 +1,4 @@
 # Project-1
+URL: https://reverent-northcutt-8c4cdb.netlify.app/
+
+This project uses a modal, a carousel, 2 APIs. It was created using jQuery, CSS, and HTML. I first pulled the data from the books to display, then added the modal functionality to allow the image to display the data. I then added a carousel to go back and forth on different display options, but first had some trouble implementing this as there was a range of options I wanted to display. I was able to adjust my carousel by making a range that wasn't hardcoded, provided the total number of options is greater than 9, which google books satisfies. I was able to implement the film implementation afterward, using the event.currentTarget method to retreive the title of the book to search a film of the same name, in which the event.currentTarget pulls the ID attribute from the button selected, which is created when the book options are created.
