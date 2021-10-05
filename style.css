@@ -2,6 +2,10 @@ body{
   background-color: #FAF0E6
 }
 
+.content{
+  display: flex;
+}
+
 #pagetitle{
   text-align: center;
   font-family: 'Josefin Sans', sans-serif;

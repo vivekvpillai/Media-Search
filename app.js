@@ -61,7 +61,7 @@ $(()=>{
         $modal.appendTo($containereach)
         const $modaltextbox = $('<div>').addClass('modal-textbox')
         $modaltextbox.appendTo($modal)
-        const $closetag = $('<div>').addClass(`close${i}`).text('Close').appendTo($modaltextbox)
+        const $closetag = $('<button>').addClass(`close${i}`).text('Close').appendTo($modaltextbox)
 
 
 ///////////////Adding the book info below
@@ -74,7 +74,7 @@ $(()=>{
           $date.appendTo($books);
           const $description = $('<a>').text(data.items[i].volumeInfo.description)
           $description.appendTo($books);
-          const $movietag = $('<div>').addClass(`movie${i}`).text('Films/Movies').appendTo($modaltextbox)
+          const $movietag = $('<button>').addClass(`movie${i}`).text('Films/Movies').attr('id', data.items[i].volumeInfo.title).appendTo($modaltextbox)
           // const $break = $('<br>').appendTo($books)
         // }
 
@@ -89,6 +89,7 @@ $(()=>{
 
         //Event Handlers
         const openModal = () => {
+
           $(`#modal${i}`).css('display', 'block');
           // console.log(`#modal${i}`)
         }
@@ -97,12 +98,13 @@ $(()=>{
           $(`#modal${i}`).css('display', 'none');
           // console.log(`#modal${i}`)
         }
-
+////////////Grabbing Movie
         const openMovie = (event) => {
           event.preventDefault()
-          const $ect = $(event.currentTarget)
+          let $title = $(event.target).attr('id')
+          console.log($title)
           $.ajax({
-            url: `https://www.omdbapi.com/?apikey=36c4fe16&t=${$(`.value${i}`)}`
+            url: `https://www.omdbapi.com/?apikey=36c4fe16&t=${$title}`
           }).then(
             (data) => {
               console.log(data.Title)
@@ -139,42 +141,41 @@ $(()=>{
       $('.Cards:nth-child(-n+5)').css({'display':'flex'})
             let nextrange1 = 1
             let nextrange2 = 6
-            let prevrange1 = 45
-            let prevrange2 = 40
-            let currentImgIndex = 0
-            let numOfImages = $('.Cards')
+            // let prevrange1 = 45
+            // let prevrange2 = 40
+            let numofCards = $('.display').children().length
 
-            if (nextrange2<41 && nextrange1<36){
+
             $('.next').on('click', () => {
               $('.Cards').css('display', 'none')
-                  if(currentImgIndex < numOfImages) {
-                currentImgIndex ++
+                  if(nextrange1<(numofCards-8) && nextrange2<(numofCards-4)) {
+                nextrange1+=4
+                nextrange2+=4
                } else {
-                currentImgIndex = 0
+                nextrange1 = 1
+                nextrange2 = 4
                }
-               nextrange1+=5
-               nextrange2+=5
                $(`.Cards:nth-child(n+${nextrange1}):nth-child(-n+${nextrange2})`).css('display', 'flex')
                console.log(nextrange1)
                console.log(nextrange2)
             })
-          }
 
-          if (nextrange2<6 && nextrange1<1){
+
+
             $('.previous').on('click', () => {
               $('.Cards').css('display', 'none')
-              if(currentImgIndex > 0) {
-             currentImgIndex --
+              if(nextrange1<=5 && nextrange2<=9) {
+             nextrange1-=4
+             nextrange2-=4
            } else {
-             currentImgIndex = numOfImages
+             nextrange1 = (numofCards-9)
+             nextrange2 = (numofCards-5)
            }
-           nextrange1-=5
-           nextrange2-=5
            $(`.Cards:nth-child(n+${nextrange1}):nth-child(-n+${nextrange2})`).css('display', 'flex')
            console.log(nextrange1)
            console.log(nextrange2)
           })
-        }
+
 
 // console.log(`.value${i}`)
   ///end of for loop
