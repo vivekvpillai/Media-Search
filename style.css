@@ -43,7 +43,6 @@ $books {
 .display{
   display: flex;
   flex-direction: row;
-  gap: 12px;
   align-content: center
 }
 
@@ -84,11 +83,8 @@ $books {
 	border-radius: 50%;
 	text-align: center;
 	box-shadow: 1px 1px #C6BEB0;
-  margin-right: 12px;
-  margin-left: 12px;
 }
 
 .cards:hover {
-  width: 110%;
-  height: 110%
+  transform: scale(1.1)
 }
