@@ -48,7 +48,9 @@ transform: scale(1.1)
 .display{
   display: flex;
   flex-direction: row;
-  align-content: center
+  align-content: center;
+  margin-top: 35px;
+  gap: 10px
 }
 
 
@@ -71,12 +73,13 @@ transform: scale(1.1)
 
 .modal-textbox {
 	background-color: white;
-	border-radius: 2px;
-	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+	border-radius: 2em;
+  margin: 150px auto;
+	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
 }
 
 
-.cards{
+.Cards{
   border-radius: 60%;
 }
 
@@ -90,6 +93,7 @@ transform: scale(1.1)
 	border-radius: 50%;
 	text-align: center;
 	box-shadow: 1px 1px #C6BEB0;
+
 }
 
 .card-button:hover {

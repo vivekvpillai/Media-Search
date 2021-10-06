@@ -60,6 +60,7 @@ $(()=>{
         const $modal = $('<div>').attr('id', `modal${i}`).addClass('modal')
         $modal.appendTo($('.modalarea'))
         const $modaltextbox = $('<div>').addClass('modal-textbox')
+        $modaltextbox.css({"font-family": "'Libre Baskerville', serif"})
         $modaltextbox.appendTo($modal)
         const $closetag = $('<button>').addClass(`close${i}`).text('Close').appendTo($modaltextbox)
 
