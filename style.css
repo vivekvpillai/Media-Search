@@ -7,11 +7,17 @@ body{
   justify-content: space-around;
 }
 
+.toplevel{
+  background-color: #CC5500;
+  align-content: center;
+}
+
 #pagetitle{
   text-align: center;
   font-family: 'Josefin Sans', sans-serif;
   font-size: 350%;
-  margin-top: 25px
+  color: white;
+  padding: 20px
 }
 
 
