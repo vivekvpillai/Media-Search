@@ -57,8 +57,8 @@ $(()=>{
       // $modalbutton.appendTo($containereach) //creating modal button
 ///////////////////////modal
       // const openModal = () => {
-        const $modal = $('<div>').attr('id', `modal${i}`)
-        $modal.appendTo($containereach)
+        const $modal = $('<div>').attr('id', `modal${i}`).addClass('modal')
+        $modal.appendTo($('.modalarea'))
         const $modaltextbox = $('<div>').addClass('modal-textbox')
         $modaltextbox.appendTo($modal)
         const $closetag = $('<button>').addClass(`close${i}`).text('Close').appendTo($modaltextbox)
@@ -101,6 +101,7 @@ $(()=>{
 ////////////Grabbing Movie
         const openMovie = (event) => {
           event.preventDefault()
+          $('.display').empty()
           let $title = $(event.target).attr('id')
           console.log($title)
           $.ajax({
@@ -111,6 +112,7 @@ $(()=>{
               console.log(data.Year)
               console.log(data.Rated)
               console.log(data.Poster)
+              const $film = $('<div>').text('Film').appendTo($books)
               const $movtitle = $('<a>').text(data.Title)
               $movtitle.appendTo($books)
               const $movdate = $('<a>').text(data.Year)
@@ -126,7 +128,7 @@ $(()=>{
         }
 
         //Event Listeners
-        $openBtn.on('click', openModal);
+        $openBtn.hover(openModal);
 
         $closeBtn.on('click', closeModal);
 
@@ -155,7 +157,7 @@ $(()=>{
                 nextrange1 = 1
                 nextrange2 = 4
                }
-               $(`.Cards:nth-child(n+${nextrange1}):nth-child(-n+${nextrange2})`).css('display', 'flex')
+               $(`.Cards:nth-child(n+${nextrange1}):nth-child(-n+${nextrange2})`).css('display', 'block')
                console.log(nextrange1)
                console.log(nextrange2)
             })
@@ -171,7 +173,7 @@ $(()=>{
              nextrange1 = (numofCards-9)
              nextrange2 = (numofCards-5)
            }
-           $(`.Cards:nth-child(n+${nextrange1}):nth-child(-n+${nextrange2})`).css('display', 'flex')
+           $(`.Cards:nth-child(n+${nextrange1}):nth-child(-n+${nextrange2})`).css('display', 'block')
            console.log(nextrange1)
            console.log(nextrange2)
           })

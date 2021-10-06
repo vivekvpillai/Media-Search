@@ -19,12 +19,36 @@ $books {
 
 }
 
+.searchbar{
+  text-align: center;
+}
+
+.searchbar input{
+  text-align: center;
+  width: 20%;
+}
+
+.searchbar button{
+  align-self: center;
+  font-family: 'Libre Baskerville', serif;
+  font-size: 70%;
+	background: #366251;
+	color: white;
+	padding: 10px;
+	border-radius: 50%;
+	text-align: center;
+	box-shadow: 1px 1px #C6BEB0;
+}
+
 .display{
   display: flex;
   flex-direction: row
 }
 
+
 .modal {
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.5);
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -49,10 +73,12 @@ $books {
 
 .card-button {
 	align-self: center;
-	background: #f2cd99;
-	color: #888;
+  font-family: 'Libre Baskerville', serif;
+  font-size: 70%;
+	background: #366251;
+	color: white;
 	padding: 10px;
 	border-radius: 50%;
 	text-align: center;
-	box-shadow: 1px 1px #fa8d8e;
+	box-shadow: 1px 1px #C6BEB0;
 }
