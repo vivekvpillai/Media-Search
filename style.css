@@ -42,12 +42,15 @@ $books {
 
 .display{
   display: flex;
-  flex-direction: row
+  flex-direction: row;
+  gap: 12px;
+  align-content: center
 }
 
 
 .modal {
   display: flex;
+  align-items: center;
   background-color: rgba(0, 0, 0, 0.5);
 	position: fixed;
 	top: 0;
@@ -81,4 +84,11 @@ $books {
 	border-radius: 50%;
 	text-align: center;
 	box-shadow: 1px 1px #C6BEB0;
+  margin-right: 12px;
+  margin-left: 12px;
+}
+
+.cards:hover {
+  width: 110%;
+  height: 110%
 }

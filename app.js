@@ -75,6 +75,7 @@ $(()=>{
           const $description = $('<a>').text(data.items[i].volumeInfo.description)
           $description.appendTo($books);
           const $movietag = $('<button>').addClass(`movie${i}`).text('Films/Movies').attr('id', data.items[i].volumeInfo.title).appendTo($modaltextbox)
+          const $film = $('<div>').addClass('film').appendTo($modaltextbox)
           // const $break = $('<br>').appendTo($books)
         // }
 
@@ -101,7 +102,7 @@ $(()=>{
 ////////////Grabbing Movie
         const openMovie = (event) => {
           event.preventDefault()
-          $('.display').empty()
+          $film.empty()
           let $title = $(event.target).attr('id')
           console.log($title)
           $.ajax({
@@ -112,13 +113,12 @@ $(()=>{
               console.log(data.Year)
               console.log(data.Rated)
               console.log(data.Poster)
-              const $film = $('<div>').text('Film').appendTo($books)
               const $movtitle = $('<a>').text(data.Title)
-              $movtitle.appendTo($books)
+              $movtitle.appendTo($film)
               const $movdate = $('<a>').text(data.Year)
-              $movdate.appendTo($books);
+              $movdate.appendTo($film);
               const $Poster = $('<img>').attr('src',data.Poster)
-              $Poster.appendTo($books);
+              $Poster.appendTo($film);
             },
             ()=> {
               console.log('No film title exists')
@@ -128,7 +128,7 @@ $(()=>{
         }
 
         //Event Listeners
-        $openBtn.hover(openModal);
+        $openBtn.on('click', openModal);
 
         $closeBtn.on('click', closeModal);
 
@@ -145,17 +145,22 @@ $(()=>{
             let nextrange2 = 6
             // let prevrange1 = 45
             // let prevrange2 = 40
-            let numofCards = $('.display').children().length
-
+            const numofCards = $('.display').children().length
+            console.log(numofCards)
+            const resetnum1 = numofCards-9
+            const resetnum2 = numofCards-4
+            console.log(resetnum1)
+            console.log(resetnum2)
 
             $('.next').on('click', () => {
               $('.Cards').css('display', 'none')
                   if(nextrange1<(numofCards-8) && nextrange2<(numofCards-4)) {
-                nextrange1+=4
-                nextrange2+=4
+                nextrange1+=5
+                nextrange2+=5
+                console.log(numofCards)
                } else {
                 nextrange1 = 1
-                nextrange2 = 4
+                nextrange2 = 6
                }
                $(`.Cards:nth-child(n+${nextrange1}):nth-child(-n+${nextrange2})`).css('display', 'block')
                console.log(nextrange1)
@@ -166,16 +171,21 @@ $(()=>{
 
             $('.previous').on('click', () => {
               $('.Cards').css('display', 'none')
-              if(nextrange1<=5 && nextrange2<=9) {
+              if(nextrange1>=4 && nextrange2>=9) {
              nextrange1-=4
              nextrange2-=4
+             console.log(nextrange1)
+             console.log(nextrange2)
            } else {
-             nextrange1 = (numofCards-9)
-             nextrange2 = (numofCards-5)
+             console.log(numofCards)
+             nextrange1 = resetnum1
+             nextrange2 = resetnum2
+             console.log(nextrange1)
+             console.log(nextrange2)
            }
-           $(`.Cards:nth-child(n+${nextrange1}):nth-child(-n+${nextrange2})`).css('display', 'block')
            console.log(nextrange1)
            console.log(nextrange2)
+           $(`.Cards:nth-child(n+${nextrange1}):nth-child(-n+${nextrange2})`).css('display', 'block')
           })
 
 
