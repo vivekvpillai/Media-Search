@@ -4,6 +4,7 @@ body{
 
 .content{
   display: flex;
+  justify-content: space-around;
 }
 
 #pagetitle{
@@ -40,6 +41,10 @@ $books {
 	box-shadow: 1px 1px #C6BEB0;
 }
 
+.searchbar button:hover{
+transform: scale(1.1)
+}
+
 .display{
   display: flex;
   flex-direction: row;
@@ -71,7 +76,9 @@ $books {
 }
 
 
-
+.cards{
+  border-radius: 60%;
+}
 
 .card-button {
 	align-self: center;
@@ -85,6 +92,10 @@ $books {
 	box-shadow: 1px 1px #C6BEB0;
 }
 
-.cards:hover {
+.card-button:hover {
   transform: scale(1.1)
+}
+
+.cards:hover {
+  transform: scale(1.25)
 }
