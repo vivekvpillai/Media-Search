@@ -1,16 +1,25 @@
 body{
-  background-color: #FAF0E6
+  background-color: #FAF0E6;
+  display: flex;
+  flex-direction: column
 }
 
 .content{
   display: flex;
+  justify-content: space-around;
+}
+
+.toplevel{
+  background-color: #CC5500;
+  align-content: center;
 }
 
 #pagetitle{
   text-align: center;
   font-family: 'Josefin Sans', sans-serif;
   font-size: 350%;
-  margin-top: 25px
+  color: white;
+  padding: 20px
 }
 
 
@@ -19,12 +28,46 @@ $books {
 
 }
 
-.display{
-  display: flex;
-  flex-direction: row
+.searchbar{
+  text-align: center;
+  margin-top: 20px;
 }
 
+.searchbar input{
+  text-align: center;
+  width: 20%;
+  border-radius: 2em
+}
+
+.searchbar button{
+  align-self: center;
+  font-family: 'Libre Baskerville', serif;
+  font-size: 70%;
+	background: #366251;
+	color: white;
+	padding: 10px;
+	border-radius: 50%;
+	text-align: center;
+	box-shadow: 1px 1px #C6BEB0;
+}
+
+.searchbar button:hover{
+transform: scale(1.1)
+}
+
+.display{
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  margin-top: 35px;
+  gap: 10px
+}
+
+
 .modal {
+  display: flex;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -39,20 +82,86 @@ $books {
 }
 
 .modal-textbox {
-	background-color: white;
-	border-radius: 2px;
-	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-size: 80%;
+	background-color: rgba(0, 0, 0, 0.64);
+  color: white;
+  height: 350px;
+	width: 550px;
+  overflow: auto;
+  border-radius: 2em;
+  margin: 150px auto;
+	box-shadow: 0 4px 4px rgba(0, 0, 0, 0.03);
 }
 
+.modal-textbox a{
+  display: flex;
+  flex-direction: column;
+}
 
-
+.modal-textbox button{
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.64);
+  color: white;
+}
 
 .card-button {
 	align-self: center;
-	background: #f2cd99;
-	color: #888;
+  font-family: 'Libre Baskerville', serif;
+  font-size: 70%;
+	background: #366251;
+	color: white;
 	padding: 10px;
 	border-radius: 50%;
 	text-align: center;
-	box-shadow: 1px 1px #fa8d8e;
+	box-shadow: 1px 1px #C6BEB0;
+
+}
+
+.card-button:hover {
+  transform: scale(1.1);
+  transition-duration: .5s
+}
+
+.cards:hover {
+  transform: scale(1.25);
+  transition-duration: .5s
+}
+
+.footer{
+  display: flex;
+  background-color: #CC5500;
+  justify-content: flex-start;
+  gap: 3px;
+  position: absolute;
+  bottom: 3;
+  left:3;
+  right:3;
+  width: 100%;
+}
+
+.footer a{
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 60%;
+  color: white
+}
+
+@media screen and (max-width: 800px) {
+  .display {
+    display: flex;
+    flex-wrap: wrap;/* The width is 100%, when the viewport is 800px or smaller */
+  }
+
+  .searchbar input{
+    text-align: center;
+    width: 70%;
+    border-radius: 2em
+  }
 }
