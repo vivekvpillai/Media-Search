@@ -34,12 +34,15 @@ $books {
   text-align: center;
   margin-top: 20px;
   margin-bottom: 30px;
-  font-family: 'Josefin Sans', sans-serif;
+}
+
+::placeholder {
+  font-family: 'Libre Baskerville', serif;
 }
 
 .searchbar input{
   text-align: center;
-  width: 20%;
+  width: 30%;
   border-radius: 2em;
 }
 
@@ -174,7 +177,7 @@ transition-duration: .5s
   height: 28px;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 800px) {
 
   .display{
     display: flex;
@@ -184,6 +187,19 @@ transition-duration: .5s
     transform: scale(1.05);
     width: 30%
 
+  }
+
+}
+
+@media screen and (min-width: 1800px) {
+
+
+  .content{
+    margin-left:0px;
+    margin-right:0px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-around;
   }
 
 }
