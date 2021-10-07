@@ -34,13 +34,13 @@ $books {
   text-align: center;
   margin-top: 20px;
   margin-bottom: 30px;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 .searchbar input{
   text-align: center;
   width: 20%;
   border-radius: 2em;
-  font-family: 'Josefin Sans', sans-serif;
 }
 
 .searchbar button{
