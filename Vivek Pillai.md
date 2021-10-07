@@ -1,0 +1,12 @@
+# Project-1
+
+URL: https://reverent-northcutt-8c4cdb.netlify.app/
+
+This project uses a modal, a carousel, and 2 APIs. It was created using jQuery, CSS, and HTML. I first pulled the data from the books to display, then added the modal functionality to allow the image to display the data. I then added a carousel to go back and forth on different display options, but first had some trouble implementing this as there was a range of options I wanted to display. I was able to adjust my carousel by making a range that wasn't hardcoded, provided the total number of options is greater than 9, which google books satisfies. I was able to implement the film implementation afterward, using the event.currentTarget method to retreive the title of the book to search a film of the same name, in which the event.currentTarget pulls the ID attribute from the button selected, which is created when the book options are created. It took me a long time to figure out how to bring the film name to be accurate to the title of the book I was selecting, but using a button with an id that I pulled in the second ajax call worked to solve the issue I was having. Overall, I spent most of my time on the functionality of this program, with getting the second API to work in conjunction with the first, configuring other APIs to see them work for the sake of learning, and fixing the carousel. In the process, I strengthened my understanding of how APIs work pretty well.
+
+Future Directions:
+
+I'd like to make the page display more books, to fill up the screen of the user. I tried using flex-wrap and width within the jquery creation in the carousel but was not able to make this work at the moment.
+I'd also like to make the movie search more forgiving. As of now, the search only works if the book name exactly matches the film name. An easy method may be to use another API that is more forgiving, but I'd like to find a technical way with the current API to make this work.
+I'd like to add filters to the book search. I think this isn't too difficult to complete, with time.
+I'd like to make the modal open process similar to Netflix's UI. I want to make this similar to the netflix page in which the hover shows a small description, and then the click makes a modal appear in which there are more details. The main task here is to add the description below the scaled image when hovering, in a manner that is presentable as Netflix's hover UI.
