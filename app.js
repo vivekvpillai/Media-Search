@@ -31,6 +31,7 @@ $(()=>{
   }).then(
   (data) => {
 //////////////////for loop
+    $('.card-button').css('visibility', 'visible')
     for (let i=0; i<data.items.length-1; i++){
       console.log(data.items[i].volumeInfo.title)
 

@@ -129,6 +129,7 @@ transition-duration: .5s
 	border-radius: 50%;
 	text-align: center;
 	box-shadow: 1px 1px #C6BEB0;
+  visibility: hidden;
 
 }
 
@@ -146,6 +147,7 @@ transition-duration: .5s
   display: flex;
   background-color: #CC5500;
   justify-content: flex-start;
+  align-items: center;
   position: fixed;
   gap: 3px;
   bottom: 3;
@@ -155,12 +157,20 @@ transition-duration: .5s
 }
 
 .footer a{
-  padding-top: 20px;
-  padding-bottom: 20px;
-  padding-left: 20px;
+  padding: 15px;
   font-family: 'Josefin Sans', sans-serif;
   font-size: 60%;
   color: white;
+}
+
+.linkedin img{
+  width: 28px;
+  height: 28px;
+}
+
+.githubrepo img{
+  width: 28px;
+  height: 28px;
 }
 
 @media screen and (max-width: 1000px) {
