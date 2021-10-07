@@ -39,7 +39,8 @@ $books {
 .searchbar input{
   text-align: center;
   width: 20%;
-  border-radius: 2em
+  border-radius: 2em;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 .searchbar button{
