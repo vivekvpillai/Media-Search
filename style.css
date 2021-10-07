@@ -46,7 +46,7 @@ $books {
   align-self: center;
   font-family: 'Libre Baskerville', serif;
   font-size: 70%;
-	background: #366251;
+	background: #5F8575;
 	color: white;
 	padding: 10px;
 	border-radius: 50%;
@@ -123,7 +123,7 @@ transition-duration: .5s
 	align-self: center;
   font-family: 'Libre Baskerville', serif;
   font-size: 70%;
-	background: #366251;
+	background: #5F8575;
 	color: white;
 	padding: 10px;
 	border-radius: 50%;
@@ -164,7 +164,7 @@ transition-duration: .5s
 }
 
 @media screen and (max-width: 1000px) {
-  
+
   .display{
     display: flex;
     flex-wrap: wrap;
