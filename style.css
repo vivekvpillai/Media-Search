@@ -55,7 +55,8 @@ $books {
 }
 
 .searchbar button:hover{
-transform: scale(1.1)
+transform: scale(1.1);
+transition-duration: .5s
 }
 
 .display{
@@ -110,13 +111,13 @@ transform: scale(1.1)
   flex-direction: column;
 }
 
-.modal-textbox button{
+/* .modal-textbox button{
   width: 30%;
   display: flex;
   flex-direction: column;
   background-color: rgba(0, 0, 0, 0.64);
   color: white;
-}
+} */
 
 .card-button {
 	align-self: center;
@@ -162,23 +163,16 @@ transform: scale(1.1)
   color: white;
 }
 
-@media screen and (max-width: 800px) {
-  .content {
+@media screen and (max-width: 1000px) {
+  
+  .display{
     display: flex;
-    flex-wrap: wrap;/* The width is 100%, when the viewport is 800px or smaller */
+    flex-wrap: wrap;
   }
-
-}
-
-@media screen and (max-width: 401px) {
-  .display {
-    display: flex;
-    flex-wrap: wrap;/* The width is 100%, when the viewport is 800px or smaller */
-  }
-
   .searchbar input{
-    transform: scale(1.1);
+    transform: scale(1.05);
     width: 30%
 
   }
+
 }

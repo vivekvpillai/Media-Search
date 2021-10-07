@@ -30,8 +30,6 @@ $(()=>{
   // type: "GET"
   }).then(
   (data) => {
-    alert("Retrieved the book " + data.items.length + " records from the dataset!");
-
 //////////////////for loop
     for (let i=0; i<data.items.length-1; i++){
       console.log(data.items[i].volumeInfo.title)
