@@ -63,9 +63,9 @@ transform: scale(1.1)
   flex-direction: row;
   justify-content: space-around;
   align-content: center;
-  gap: 1%;
-  margin-left: 15%;
-  margin-right: 15%
+  gap: 10px;
+  margin-left: 10px;
+  margin-right: 10px
 }
 
 /* .Cards{

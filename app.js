@@ -148,25 +148,25 @@ $(()=>{
         //   $modal.css('display', 'none');
         // })
         $('.Cards').css('display', 'none')
-        $('.Cards:nth-child(-n+5)').css({'display':'flex'})
+        $('.Cards:nth-child(-n+6)').css({'display':'flex'})
               let nextrange1 = 1
-              let nextrange2 = 10
+              let nextrange2 = 6
               // let prevrange1 = 45
               // let prevrange2 = 40
               const numofCards = $('.display').children().length
               console.log(numofCards)
-              const resetnum1 = numofCards-10
+              const resetnum1 = numofCards-5
               const resetnum2 = numofCards
 
 
               $('.next').on('click', () => {
                 $('.Cards').css('display', 'none')
-                    if(nextrange1<(numofCards-20) && nextrange2<(numofCards-10)) {
-                  nextrange1+=10
-                  nextrange2+=10
+                    if(nextrange1<(numofCards-8) && nextrange2<(numofCards-5)) {
+                  nextrange1+=5
+                  nextrange2+=5
                  } else {
                   nextrange1 = 1
-                  nextrange2 = 10
+                  nextrange2 = 6
                  }
                  $(`.Cards:nth-child(n+${nextrange1}):nth-child(-n+${nextrange2})`).css('display', 'block')
               })
@@ -175,9 +175,9 @@ $(()=>{
 
               $('.previous').on('click', () => {
                 $('.Cards').css('display', 'none')
-                if(nextrange1>=11 && nextrange2>=21) {
-               nextrange1-=10
-               nextrange2-=10
+                if(nextrange1>=4 && nextrange2>=9) {
+               nextrange1-=4
+               nextrange2-=4
              } else {
                console.log(numofCards)
                nextrange1 = resetnum1
