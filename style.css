@@ -6,7 +6,6 @@ body{
 
 .content{
   display: flex;
-  justify-content: space-between;
   margin-left: auto;
   margin-right: auto
 }
@@ -66,7 +65,7 @@ transition-duration: .5s
 .display{
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-content: center;
   gap: 10px;
   margin-left: 10px;
@@ -177,7 +176,7 @@ transition-duration: .5s
   height: 28px;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 967px) {
 
   .display{
     display: flex;
@@ -191,15 +190,66 @@ transition-duration: .5s
 
 }
 
-@media screen and (min-width: 1800px) {
-
+@media only screen and (min-width: 1000px) {
 
   .content{
     margin-left:0px;
     margin-right:0px;
     display: flex;
     flex-wrap: wrap;
-    justify-content:space-around;
+    justify-content:space-around
+  }
+  .display{
+    display: flex;
+    gap: 20px;
+  }
+
+}
+
+@media only screen and (min-width: 1200px) {
+
+  .content{
+    margin-left:0px;
+    margin-right:0px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-around
+  }
+  .display{
+    display: flex;
+    gap: 40px;
+  }
+
+}
+
+@media only screen and (min-width: 1400px) {
+
+  .content{
+    margin-left:0px;
+    margin-right:0px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-around
+  }
+  .display{
+    display: flex;
+    gap: 70px;
+  }
+
+}
+
+@media only screen and (min-width: 1600px) {
+
+  .content{
+    margin-left:0px;
+    margin-right:0px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-around
+  }
+  .display{
+    display: flex;
+    gap: 100px;
   }
 
 }
