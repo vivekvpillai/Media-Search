@@ -6,7 +6,9 @@ body{
 
 .content{
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  margin-left: auto;
+  margin-right: auto
 }
 
 .toplevel{
@@ -31,6 +33,7 @@ $books {
 .searchbar{
   text-align: center;
   margin-top: 20px;
+  margin-bottom: 30px;
 }
 
 .searchbar input{
@@ -58,10 +61,16 @@ transform: scale(1.1)
 .display{
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
   align-content: center;
-  margin-top: 35px;
-  gap: 10px
+  gap: 1%;
+  margin-left: 15%;
+  margin-right: 15%
 }
+
+/* .Cards{
+  height: 40%
+} */
 
 
 .modal {
@@ -136,8 +145,8 @@ transform: scale(1.1)
   display: flex;
   background-color: #CC5500;
   justify-content: flex-start;
+  position: fixed;
   gap: 3px;
-  position: absolute;
   bottom: 3;
   left:3;
   right:3;
@@ -150,18 +159,26 @@ transform: scale(1.1)
   padding-left: 20px;
   font-family: 'Josefin Sans', sans-serif;
   font-size: 60%;
-  color: white
+  color: white;
 }
 
 @media screen and (max-width: 800px) {
+  .content {
+    display: flex;
+    flex-wrap: wrap;/* The width is 100%, when the viewport is 800px or smaller */
+  }
+
+}
+
+@media screen and (max-width: 401px) {
   .display {
     display: flex;
     flex-wrap: wrap;/* The width is 100%, when the viewport is 800px or smaller */
   }
 
   .searchbar input{
-    text-align: center;
-    width: 70%;
-    border-radius: 2em
+    transform: scale(1.1);
+    width: 30%
+
   }
 }
