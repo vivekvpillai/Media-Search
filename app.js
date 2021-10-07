@@ -20,7 +20,7 @@ $(()=>{
   $('.search').on('click', (event) => {
     event.preventDefault()
     $('.display').empty()
-
+    $('.modalarea').empty()
     const userInput = $('.inputbox').val()
     console.log('wow')
 
