@@ -118,6 +118,7 @@ $(()=>{
 ////////////Grabbing Movie
           const moveFavorite = (event) => {
             event.preventDefault()
+            $('.my-button').css('visibility', 'visible')
             let favid = $(event.target).attr('id')
             $(`.${favid}`).appendTo($favoritediv)
           }

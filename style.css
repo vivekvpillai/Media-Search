@@ -145,6 +145,24 @@ transition-duration: .5s
   transition-duration: .5s
 }
 
+.my-button{
+  align-self: center;
+  font-family: 'Libre Baskerville', serif;
+  font-size: 70%;
+	background: #5F8575;
+	color: white;
+	padding: 10px;
+	border-radius: 50%;
+	text-align: center;
+	box-shadow: 1px 1px #C6BEB0;
+  visibility: hidden;
+}
+
+.my-button:hover {
+  transform: scale(1.1);
+  transition-duration: .5s
+}
+
 .cards:hover {
   transform: scale(1.25);
   transition-duration: .5s
@@ -190,6 +208,12 @@ transition-duration: .5s
   margin-right: 10px;
   margin-top: 20px;
   transform: scale(0.8)
+}
+
+.favoritediv{
+  display: flex;
+  gap: 30px;
+  width: 
 }
 
 @media screen and (max-width: 967px) {
