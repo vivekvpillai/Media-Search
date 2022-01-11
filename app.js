@@ -36,19 +36,19 @@ $(()=>{
       console.log(data.items[i].volumeInfo.title)
 
       const $containereach = $('<div>').addClass('Cards')
-      $containereach.appendTo($('.display')) //each card container for the Books
+      $containereach.appendTo($('.display')) //each card container for the Books. Technically display and the covers are above the modals in the html, so they're separate divs.
 ////////////////////Covers
       //below is the code for the book covers adding to the card containers
       if (data.items[i].volumeInfo.imageLinks!=undefined){
         const $cover = $('<img>').attr('src',data.items[i].volumeInfo.imageLinks.thumbnail)
         $cover.attr('id', `cover${i}`)
-        $cover.addClass(`openModal${i}`)
+        $cover.addClass(`openModal${i}`) //making the cover open the modal when clicked.
         $cover.appendTo($containereach)
       } else {
         const $cover = $('<h3>').text(data.items[i].volumeInfo.title)
         $cover.attr('id', `cover${i}`)
         $cover.addClass(`openModal${i}`)
-        $cover.appendTo($containereach)
+        $cover.appendTo($containereach) //each cover is in a container
       }
 
       // const $modalbutton = $('<button>').text('Info')
@@ -57,15 +57,15 @@ $(()=>{
 ///////////////////////modal
       // const openModal = () => {
         const $modal = $('<div>').attr('id', `modal${i}`).addClass('modal')
-        $modal.appendTo($('.modalarea'))
+        $modal.appendTo($('.modalarea')) //this is
         const $modaltextbox = $('<div>').addClass('modal-textbox')
         $modaltextbox.css({"font-family": "'Libre Baskerville', serif"})
-        $modaltextbox.appendTo($modal)
+        $modaltextbox.appendTo($modal) // modal holds the textbox which holds the books.
         const $closetag = $('<button>').addClass(`close${i}`).text('Close').appendTo($modaltextbox)
 
 
 ///////////////Adding the book info below
-        const $books =$('<div>').text(data.items[i].volumeInfo.title).addClass(`title value${i}`);
+        const $books =$('<div>').text(data.items[i].volumeInfo.title).addClass(`title value${i}`); //creating a books div to hold the book info
         $books.appendTo($modaltextbox);
         $books.css({'margin-bottom':'15px'})
           const $author = $('<a>').text(data.items[i].volumeInfo.authors)
@@ -101,7 +101,7 @@ $(()=>{
         }
 ////////////Grabbing Movie
         const openMovie = (event) => {
-          event.preventDefault()
+          event.preventDefault() //has no function here
           $film.empty()
           let $title = $(event.target).attr('id')
           console.log($title)
@@ -208,13 +208,3 @@ $(()=>{
 
 })
 
-//intersting
-///
-//
-// let x=null
-//
-// setTimeout(() => {
-//   x ="retrieved"
-// }, 500)
-//
-// console.log(x)
